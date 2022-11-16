@@ -2,7 +2,8 @@
   "name": "netease-unlock-area-11",
   "version": "1.0.0",
   "scripts": {
-    "start": "tsx ./index.ts"
+    "start": "tsx ./index.ts",
+    "format": "rome format ./index.ts --write"
   },
   "devDependencies": {
     "@types/node": "^16.18.3",
