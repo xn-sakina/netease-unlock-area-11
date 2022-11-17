@@ -6,7 +6,7 @@ specifiers:
   '@types/node-cron': ^3.0.5
   '@types/prettier': ^2.7.1
   NeteaseCloudMusicApi: ^4.8.2
-  dotenv: ^16.0.3
+  dotenv-flow: ^3.2.0
   global-agent: ^3.0.0
   node-cron: ^3.0.2
   pkg: ^5.8.0
@@ -21,7 +21,7 @@ devDependencies:
   '@types/node-cron': 3.0.6
   '@types/prettier': 2.7.1
   NeteaseCloudMusicApi: 4.8.2
-  dotenv: 16.0.3
+  dotenv-flow: 3.2.0
   global-agent: 3.0.0
   node-cron: 3.0.2
   pkg: 5.8.0
@@ -600,9 +600,16 @@ packages:
       path-type: 4.0.0
     dev: true
 
-  /dotenv/16.0.3:
-    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
-    engines: {node: '>=12'}
+  /dotenv-flow/3.2.0:
+    resolution: {integrity: sha512-GEB6RrR4AbqDJvNSFrYHqZ33IKKbzkvLYiD5eo4+9aFXr4Y4G+QaFrB/fNp0y6McWBmvaPn3ZNjIufnj8irCtg==}
+    engines: {node: '>= 8.0.0'}
+    dependencies:
+      dotenv: 8.6.0
+    dev: true
+
+  /dotenv/8.6.0:
+    resolution: {integrity: sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==}
+    engines: {node: '>=10'}
     dev: true
 
   /ee-first/1.1.1:

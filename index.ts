@@ -6,7 +6,7 @@ import prettier from 'prettier';
 import { bootstrap } from 'global-agent';
 
 proxySetup();
-require('dotenv').config();
+require('dotenv-flow').config();
 
 const COOKIE_FILE = path.join(__dirname, './cookie.json');
 const REFRESH_OUT_DIR = path.join(__dirname, './refresh_out');
@@ -47,11 +47,14 @@ const run = async () => {
   }
 
   async function initialCookie() {
+    console.log('第一次登录，获取初始 cookie ...');
     const result = await login_cellphone({
       phone: process.env.N_PHONE,
       password: process.env.N_PASSWORD,
     });
-    console.log('第一次登录，获取初始 cookie ...');
+    if (result?.body?.msg) {
+      throw new Error(result.body.msg as string);
+    }
     fs.writeFileSync(COOKIE_FILE, JSON.stringify(result), 'utf-8');
   }
 };
@@ -130,7 +133,7 @@ export function proxySetup(proxy?: string, noProxy?: string) {
         all_proxy;
       bootstrap();
     } else {
-      // 没有的话，尝试从 .env 读取代理
+      // 本地 SHELL 环境没有配置代理的话，尝试从 .env.local 读取代理
       // dotenv.config()
       // const { NO_PROXY, PROXY } = process.env
       // if (NO_PROXY) process.env.GLOBAL_AGENT_NO_PROXY = NO_PROXY
