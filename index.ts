@@ -52,6 +52,9 @@ const run = async () => {
       phone: process.env.N_PHONE,
       password: process.env.N_PASSWORD,
     });
+    if (result?.status === 400) {
+      throw new Error('登录失败');
+    }
     if (result?.body?.msg) {
       throw new Error(result.body.msg as string);
     }
